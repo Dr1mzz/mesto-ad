@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport"
@@ -9,7 +8,6 @@
   <title>Mesto</title>
   <link rel="stylesheet" href="./src/pages/index.css" />
 </head>
-
 <body class="page">
   <div class="page__content">
     <header class="header page__section">
@@ -32,87 +30,51 @@
     <footer class="footer page__section">
       <p class="footer__copyright">© 2025 Mesto Russia</p>
     </footer>
-
     <div class="popup popup_type_edit">
       <div class="popup__content">
         <button type="button" class="popup__close"></button>
         <h3 class="popup__title">Редактировать профиль</h3>
-        <!-- novalidate - отключает встроенную браузерную валидацию, чтобы использовать кастомную -->
         <form class="popup__form" name="edit-profile" novalidate>
           <label class="popup__label">
-            <!-- required - поле обязательно для заполнения -->
-            <!-- minlength="2" - минимальная длина значения 2 символа -->
-            <!-- maxlength="40" - максимальная длина значения 40 символов -->
-            <!-- pattern="^[a-zA-Zа-яА-ЯёЁ\s\-]+$" - регулярное выражение для проверки:
-                 ^ - начало строки
-                 [a-zA-Zа-яА-ЯёЁ\s\-]+ - один или более символов: латинские буквы, кириллические буквы, пробелы (\s), дефисы (\-)
-                 $ - конец строки -->
-            <!-- data-error-message - кастомное сообщение об ошибке, которое будет показано при несоответствии pattern -->
             <input type="text" name="user-name" id="user-name" class="popup__input popup__input_type_name"
               placeholder="Имя" required minlength="2" maxlength="40" pattern="^[a-zA-Zа-яА-ЯёЁ\s\-]+$"
               data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" />
-            <!-- Элемент для отображения ошибки валидации под полем ввода -->
-            <!-- id="user-name-error" - ID формируется как "id-поля-error" для связи с полем ввода -->
-            <!-- Изначально скрыт, становится видимым при ошибке валидации через класс popup__error_visible -->
             <span class="popup__error" id="user-name-error"></span>
           </label>
           <label class="popup__label">
-            <!-- required - поле обязательно для заполнения -->
-            <!-- minlength="2" - минимальная длина значения 2 символа -->
-            <!-- maxlength="200" - максимальная длина значения 200 символов -->
             <input type="text" name="user-description" id="user-description"
               class="popup__input popup__input_type_description" placeholder="Занятие" required minlength="2"
               maxlength="200" />
-            <!-- Элемент для отображения ошибки валидации под полем ввода -->
             <span class="popup__error" id="user-description-error"></span>
           </label>
-          <!-- popup__button_disabled - CSS-класс для визуального отображения неактивной кнопки -->
-          <!-- disabled - HTML-атрибут, делающий кнопку недоступной для нажатия -->
-          <!-- Кнопка изначально неактивна и станет активной только когда все поля формы валидны -->
           <button type="submit" class="button popup__button popup__button_disabled" disabled>
             Сохранить
           </button>
         </form>
       </div>
     </div>
-
     <div class="popup popup_type_new-card">
       <div class="popup__content">
         <button type="button" class="popup__close"></button>
         <h3 class="popup__title">Новое место</h3>
-        <!-- novalidate - отключает встроенную браузерную валидацию -->
         <form class="popup__form" name="new-place" novalidate>
           <label class="popup__label">
-            <!-- required - поле обязательно для заполнения -->
-            <!-- minlength="2" - минимальная длина значения 2 символа -->
-            <!-- maxlength="30" - максимальная длина значения 30 символов -->
-            <!-- pattern - регулярное выражение для проверки допустимых символов (латиница, кириллица, пробелы, дефисы) -->
-            <!-- data-error-message - кастомное сообщение об ошибке при несоответствии pattern -->
             <input type="text" name="place-name" id="place-name" class="popup__input popup__input_type_card-name"
               placeholder="Название" required minlength="2" maxlength="30" pattern="^[a-zA-Zа-яА-ЯёЁ\s\-]+$"
               data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" />
-            <!-- Элемент для отображения ошибки валидации под полем ввода -->
             <span class="popup__error" id="place-name-error"></span>
           </label>
           <label class="popup__label">
-            <!-- type="url" - тип поля для ввода URL, браузер автоматически проверяет формат ссылки -->
-            <!-- required - поле обязательно для заполнения -->
-            <!-- Для поля URL не нужна проверка длины, только проверка формата ссылки -->
             <input type="url" name="place-link" id="place-link" class="popup__input popup__input_type_url"
               placeholder="Ссылка на картинку" required />
-            <!-- Элемент для отображения ошибки валидации под полем ввода -->
             <span class="popup__error" id="place-link-error"></span>
           </label>
-          <!-- popup__button_disabled - CSS-класс для неактивной кнопки -->
-          <!-- disabled - HTML-атрибут, делающий кнопку недоступной -->
-          <!-- Кнопка изначально неактивна и станет активной только когда все поля валидны -->
           <button type="submit" class="button popup__button popup__button_disabled" disabled>
             Создать
           </button>
         </form>
       </div>
     </div>
-
     <div class="popup popup_type_image">
       <div class="popup__content popup__content_content_image">
         <button type="button" class="popup__close"></button>
@@ -120,7 +82,6 @@
         <p class="popup__caption"></p>
       </div>
     </div>
-
     <div class="popup popup_type_remove-card">
       <div class="popup__content">
         <button type="button" class="popup__close"></button>
@@ -132,25 +93,16 @@
         </form>
       </div>
     </div>
-
     <div class="popup popup_type_edit-avatar">
       <div class="popup__content">
         <button type="button" class="popup__close"></button>
         <h3 class="popup__title">Обновить аватар</h3>
-        <!-- novalidate - отключает встроенную браузерную валидацию -->
         <form class="popup__form" name="edit-avatar" novalidate>
           <label class="popup__label">
-            <!-- type="url" - тип поля для ввода URL, браузер автоматически проверяет формат ссылки -->
-            <!-- required - поле обязательно для заполнения -->
-            <!-- Для поля аватара нужна только проверка формата ссылки, проверка длины не требуется -->
             <input type="url" name="user-avatar" id="user-avatar" class="popup__input popup__input_type_avatar"
               placeholder="Ссылка на изображение" required />
-            <!-- Элемент для отображения ошибки валидации под полем ввода -->
             <span class="popup__error" id="user-avatar-error"></span>
           </label>
-          <!-- popup__button_disabled - CSS-класс для неактивной кнопки -->
-          <!-- disabled - HTML-атрибут, делающий кнопку недоступной -->
-          <!-- Кнопка изначально неактивна и станет активной только когда поле валидно -->
           <button type="submit" class="button popup__button popup__button_disabled" disabled>
             Сохранить
           </button>
@@ -162,15 +114,12 @@
         <button type="button" class="popup__close"></button>
         <h3 class="popup__title"></h3>
         <dl class="popup__info"></dl>
-
         <h4 class="popup__text"></h4>
         <ul class="popup__list"></ul>
       </div>
     </div>
   </div>
-
   <script src="./src/scripts/index.js" defer type="module"></script>
-
   <template id="card-template">
     <li class="places__item card">
       <img class="card__image" src="" alt="" />
@@ -192,10 +141,8 @@
       <dd class="popup__info-description"></dd>
     </div>
   </template>
-
   <template id="popup-info-user-preview-template">
     <li class="popup__list-item popup__list-item_type_badge"></li>
   </template>
 </body>
-
 </html>
