@@ -250,8 +250,29 @@ const handleLogoClick = () => {
         createInfoString("Всего пользователей:", totalUsers.toString())
       );
 
-      usersStatsModalTitle.textContent = "Статистика";
-      usersStatsModalText.textContent = "Пользователи:";
+      const userCardCounts = {};
+      for (const card of cards) {
+        const userId = card.owner._id;
+        if (userCardCounts[userId]) {
+          userCardCounts[userId]++;
+        } else {
+          userCardCounts[userId] = 1;
+        }
+      }
+
+      let maxCardsFromOne = 0;
+      for (const count of Object.values(userCardCounts)) {
+        if (count > maxCardsFromOne) {
+          maxCardsFromOne = count;
+        }
+      }
+
+      usersStatsModalInfoList.append(
+        createInfoString("Максимум карточек от одного:", maxCardsFromOne.toString())
+      );
+
+      usersStatsModalTitle.textContent = "Статистика пользователей";
+      usersStatsModalText.textContent = "Все пользователи:";
 
       const userTemplate = document.querySelector(
         "#popup-info-user-preview-template"
